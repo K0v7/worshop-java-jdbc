@@ -166,12 +166,11 @@ public class DepartmentListController implements Initializable, DataChangeListen
 		if (result.get() == ButtonType.OK) {
 			if (service == null) {
 				throw new IllegalStateException("Service Was Null");
-		}
+			}
 			try {
 				service.remove(obj);
 				updateTableView();
-		}
-			catch (DbIntegrityException e) {
+			} catch (DbIntegrityException e) {
 				Alerts.showAlert("Error removing object", null, e.getMessage(), AlertType.ERROR);
 			}
 		}
